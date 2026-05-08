@@ -447,28 +447,11 @@ function applyTextStroke(text: TextObjectWithMeta) {
   text.set("paintFirst", "stroke");
   text.set("strokeUniform", true as any);
 }
+
 function applyTextShadow(text: TextObjectWithMeta) {
   if (!text.shadowEnabled) {
     text.shadowEnabled = false;
     text.set("shadow", undefined);  // Change from null to undefined
-    return;
-  }
-
-  text.shadowEnabled = true;
-  text.set(
-    "shadow",
-    new fabric.Shadow({
-      color: colorInputValue(text.shadowColor, "#111111"),
-      blur: Math.max(0, normalizeNumber(text.shadowBlur, 0)),
-      offsetX: normalizeNumber(text.shadowOffsetX, 0),
-      offsetY: normalizeNumber(text.shadowOffsetY, 0)
-    })
-  );
-}
-  function applyTextShadow(text: TextObjectWithMeta) {
-  if (!text.shadowEnabled) {
-    text.shadowEnabled = false;
-    text.set("shadow", undefined);
     return;
   }
 
