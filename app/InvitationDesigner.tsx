@@ -465,6 +465,13 @@ function applyTextShadow(text: TextObjectWithMeta) {
     })
   );
 }
+  function applyTextShadow(text: TextObjectWithMeta) {
+  if (!text.shadowEnabled) {
+    text.shadowEnabled = false;
+    text.set("shadow", undefined);
+    return;
+  }
+
   text.shadowEnabled = true;
   text.set(
     "shadow",
